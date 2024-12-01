@@ -17,6 +17,8 @@ const locators ={
     updatesPage: 'div.framer-7hrpx3-container span',
     updatesPageTitle: 'div.framer-1oe4f0f h1 span',
     homePageMobileAppVideoButtons: 'div.framer-15y7aei > div',
+    homePage3DButton: 'div.framer-yvxyy1 span',
+    animation3D: 'div.framer-xattrb[data-framer-name="Variant 2"]',
 }
 
 export{locators}
