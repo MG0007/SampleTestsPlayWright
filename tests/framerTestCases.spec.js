@@ -55,3 +55,12 @@ test("Does display 'Sign up' button's color as 'rgb(255,82,79'", async ({ page }
         .locator(locators.footerSignUpButton)).toHaveText('Sign Up');
     expect(buttonColor).toBe(locators.componentsPageSignUpButton);
 })
+
+test("Does blur the background after clicking 'Get the app' button", async({page})=>{
+    await page.goto(locators.homePage);
+
+    await page.locator(locators.homePageGetTheAppButton).click();
+
+    const blur = await page.locator('#overlay div.framer-vrqh0x').count();
+    expect(blur).toBe(1);
+})
