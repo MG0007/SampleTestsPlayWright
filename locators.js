@@ -14,6 +14,8 @@ const locators ={
     footerSignUpButton: 'form input[value="Sign Up"]',
     componentsPageSignUpButton: 'rgb(255,82,79)',
     homePageGetTheAppButton: 'div.framer-14g223s span',
+    updatesPage: 'div.framer-7hrpx3-container span',
+    updatesPageTitle: 'div.framer-1oe4f0f h1 span',
 }
 
 export{locators}
