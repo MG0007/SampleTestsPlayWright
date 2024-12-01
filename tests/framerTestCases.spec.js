@@ -64,3 +64,10 @@ test("Does blur the background after clicking 'Get the app' button", async({page
     const blur = await page.locator('#overlay div.framer-vrqh0x').count();
     expect(blur).toBe(1);
 })
+
+test("Does display the 'Updates' page after clicking the 'Update' button", async ({ page }) => {
+    await page.goto(locators.homePage);
+    await page.locator(locators.updatesPage).click();
+
+    await expect(page.locator(locators.updatesPageTitle)).toHaveText('Updates')
+})
