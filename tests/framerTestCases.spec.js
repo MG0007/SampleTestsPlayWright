@@ -71,3 +71,13 @@ test("Does display the 'Updates' page after clicking the 'Update' button", async
 
     await expect(page.locator(locators.updatesPageTitle)).toHaveText('Updates')
 })
+
+test("Does display 'get the app' and 'watch video' one above the other on mobile", async ({ page }) => {
+    await page.goto(locators.homePage);
+    await page.setViewportSize({ width: 400, height: 800 });
+
+    const buttonsText = await page.locator(locators.homePageMobileAppVideoButtons).allTextContents();
+
+    expect(buttonsText[0]).toBe('Get the App')
+    expect(buttonsText[1]).toBe('Watch video')
+})
