@@ -16,6 +16,7 @@ const locators ={
     homePageGetTheAppButton: 'div.framer-14g223s span',
     updatesPage: 'div.framer-7hrpx3-container span',
     updatesPageTitle: 'div.framer-1oe4f0f h1 span',
+    homePageMobileAppVideoButtons: 'div.framer-15y7aei > div',
 }
 
 export{locators}
