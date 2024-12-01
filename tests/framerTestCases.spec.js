@@ -81,3 +81,15 @@ test("Does display 'get the app' and 'watch video' one above the other on mobile
     expect(buttonsText[0]).toBe('Get the App')
     expect(buttonsText[1]).toBe('Watch video')
 })
+
+test("Does display 3d animation after clicking on 'click to view in 3d' button", async({page}) =>{
+    await page.goto(locators.homePage);
+    await page.setViewportSize({ width: 1920, height: 1080 });
+
+    await page.locator(locators.homePage3DButton).scrollIntoViewIfNeeded();
+    await page.locator(locators.homePage3DButton).click();
+
+    const animation = await page.locator(locators.animation3D).count();
+
+    expect(animation).toBe(1);
+})
