@@ -13,6 +13,7 @@ const locators ={
     footerSubscribeSection: 'div.framer-l3ry8h',
     footerSignUpButton: 'form input[value="Sign Up"]',
     componentsPageSignUpButton: 'rgb(255,82,79)',
+    homePageGetTheAppButton: 'div.framer-14g223s span',
 }
 
 export{locators}
