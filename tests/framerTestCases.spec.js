@@ -6,13 +6,11 @@ test.beforeEach(async ({page}) =>{
 });
 
 test("Visit Framer home page and click 'Pricing'", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.locator(locators.pricingPage.pricingPageUrl).click();
     await expect(page.locator(locators.pricingPage.pricingPageTitle)).toHaveText('Pricing');
 })
 
 test("Does display '$' for products in Pricing page", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.locator(locators.pricingPage.pricingPageUrl).click();
 
     const priceTagAllTiles = await page.locator(locators.pricingPage.pricingPageTiles).allTextContents();
@@ -23,7 +21,6 @@ test("Does display '$' for products in Pricing page", async ({ page }) => {
 })
 
 test("Does contain 4 questions in the FAQ section from 'Pricing' page", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.locator(locators.pricingPage.pricingPageUrl).click();
 
     await page.getByText('FAQ').scrollIntoViewIfNeeded();
@@ -33,7 +30,6 @@ test("Does contain 4 questions in the FAQ section from 'Pricing' page", async ({
 })
 
 test("Does display 'visit' button on each card in the 'Many types of components to customize' section", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl)
     await page.locator(locators.componentsPage.componentsPageUrl).click();
 
     const countCardVisitButton = await page.locator(locators.componentsPage.componentsPageCardsVisitButtons).count();
@@ -44,7 +40,6 @@ test("Does display 'visit' button on each card in the 'Many types of components 
 })
 
 test("Does display 'Sign up' button's color as 'rgb(255,82,79'", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.locator(locators.componentsPage.componentsPageUrl).click();
 
     await page.locator(locators.footerSection.footerSec).scrollIntoViewIfNeeded();
@@ -61,8 +56,6 @@ test("Does display 'Sign up' button's color as 'rgb(255,82,79'", async ({ page }
 })
 
 test("Does blur the background after clicking 'Get the app' button", async({page})=>{
-    // await page.goto(locators.homePage.homePageUrl);
-
     await page.locator(locators.homePage.homePageGetTheAppButton).click();
 
     const blur = await page.locator('#overlay div.framer-vrqh0x').count();
@@ -70,14 +63,12 @@ test("Does blur the background after clicking 'Get the app' button", async({page
 })
 
 test("Does display the 'Updates' page after clicking the 'Update' button", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.locator(locators.updatesPage.updatesPageUrl).click();
 
     await expect(page.locator(locators.updatesPage.updatesPageTitle)).toHaveText('Updates')
 })
 
 test("Does display 'get the app' and 'watch video' one above the other on mobile", async ({ page }) => {
-    // await page.goto(locators.homePage.homePageUrl);
     await page.setViewportSize({ width: 400, height: 800 });
 
     const buttonsText = await page.locator(locators.homePage.homePageMobileAppVideoButtons).allTextContents();
@@ -87,7 +78,6 @@ test("Does display 'get the app' and 'watch video' one above the other on mobile
 })
 
 test("Does display 3d animation after clicking on 'click to view in 3d' button", async({page}) =>{
-    // await page.goto(locators.homePage.homePageUrl);
     await page.setViewportSize({ width: 1920, height: 1080 });
 
     await page.locator(locators.homePage.homePage3DButton).scrollIntoViewIfNeeded();
