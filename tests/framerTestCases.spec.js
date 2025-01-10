@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { locators } from '../locators';
 
-test.beforeEach(async ({page}) =>{
+test.beforeEach(async ({ page }) => {
     await page.goto(locators.homePage.homePageUrl);
 });
 
@@ -32,11 +32,18 @@ test("Does contain 4 questions in the FAQ section from 'Pricing' page", async ({
 test("Does display 'visit' button on each card in the 'Many types of components to customize' section", async ({ page }) => {
     await page.locator(locators.componentsPage.componentsPageUrl).click();
 
-    const countCardVisitButton = await page.locator(locators.componentsPage.componentsPageCardsVisitButtons).count();
-    const cardCount = await page.locator(locators.componentsPage.componentsPageCard).count();
-    const cardSmallCount = await page.locator(locators.componentsPage.componentsPageCardSmall).count();
+    const largeCards = await page.locator(locators.componentsPage.largeCard).all();
+    const smallCards = await page.locator(locators.componentsPage.smallCard).all();
 
-    expect(cardCount + cardSmallCount).toEqual(countCardVisitButton);
+    for (let el of largeCards) {
+        let visitButtLocator = 'div.'  + await el.getAttribute('class') + locators.componentsPage.cardAddition;
+        expect(page.locator(visitButtLocator)).toHaveText(locators.componentsPage.buttonText);
+    };
+
+    for(let el of smallCards){
+        let visitButtLocator = 'div.' + await el.getAttribute('class') + locators.componentsPage.cardAddition;
+        expect(page.locator(visitButtLocator)).toHaveText(locators.componentsPage.buttonText);
+    }
 })
 
 test("Does display 'Sign up' button's color as 'rgb(255,82,79'", async ({ page }) => {
@@ -55,7 +62,7 @@ test("Does display 'Sign up' button's color as 'rgb(255,82,79'", async ({ page }
     expect(buttonColor).toBe(locators.componentsPage.componentsPageSignUpButton);
 })
 
-test("Does blur the background after clicking 'Get the app' button", async({page})=>{
+test("Does blur the background after clicking 'Get the app' button", async ({ page }) => {
     await page.locator(locators.homePage.homePageGetTheAppButton).click();
 
     const blur = await page.locator('#overlay div.framer-vrqh0x').count();
@@ -77,7 +84,7 @@ test("Does display 'get the app' and 'watch video' one above the other on mobile
     expect(buttonsText[1]).toBe('Watch video')
 })
 
-test("Does display 3d animation after clicking on 'click to view in 3d' button", async({page}) =>{
+test("Does display 3d animation after clicking on 'click to view in 3d' button", async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
 
     await page.locator(locators.homePage.homePage3DButton).scrollIntoViewIfNeeded();
