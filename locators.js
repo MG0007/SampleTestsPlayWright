@@ -20,7 +20,10 @@ const locators = {
         componentsPageCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card"]',
         componentsPageCardSmall: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card Small"]',
         componentsPageSignUpButton: 'rgb(255,82,79)',
-
+        largeCard: 'div.framer-1ytqfhu div[name="Card"]',
+        smallCard: 'div.framer-1ytqfhu div[name="Card Small"]',
+        cardAddition: ' div[name="Button"] p span.framer-text',
+        buttonText: 'Visit'
     },
     footerSection: {
         footerSec: 'div.framer-1jtqeum',
